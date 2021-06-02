@@ -1,0 +1,5 @@
+puj\as\wsrentas\WSManagerRentas.class
+puj\as\wsrentas\facades\RentasFacade.class
+puj\as\wsrentas\JAXRSConfiguration.class
+puj\as\wsrentas\facades\AbstractFacade.class
+puj\as\wsrentas\resources\JavaEE8Resource.class
