@@ -1,3 +1,7 @@
 puj\as\presentacionweb\webmvcrentas\controller\AppController.class
-puj\as\presentacionweb\webmvcrentas\App.class
+puj\as\presentacionweb\webmvcrentas\repositorios\SolicitudDataRepositorio.class
 puj\as\presentacionweb\webmvcrentas\repositorios\RentasDataRepositorio.class
+puj\as\presentacionweb\webmvcrentas\proxys\ProxyWSRentas$1.class
+puj\as\presentacionweb\webmvcrentas\proxys\ProxyWSRentas.class
+puj\as\presentacionweb\webmvcrentas\App.class
+puj\as\presentacionweb\webmvcrentas\dtos\SolicitudDTO.class

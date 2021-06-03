@@ -35,6 +35,15 @@
                         </f:facet>
                         <h:outputText value="#{item.modelo}"/>
                     </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Precio"/>
+                        </f:facet>
+                        <h:outputText value="#{item.precio}"/>
+                    </h:column>
+                    <h:column>
+                         <a href="#{request.contextPath}/mvc/app/if/#{item.placa}">Rentar</a>
+                    </h:column>
                 </h:dataTable>
             </h:form>
         </f:view>

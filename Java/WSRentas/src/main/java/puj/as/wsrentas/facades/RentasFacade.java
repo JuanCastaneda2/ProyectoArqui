@@ -10,14 +10,14 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import puj.as.sidecar.entities.Rentas;
+import puj.as.sidecar.entities.Renta;
 
 /**
  *
  * @author admin
  */
 @Stateless
-public class RentasFacade extends AbstractFacade<Rentas> {
+public class RentasFacade extends AbstractFacade<Renta> {
 
     @PersistenceContext(unitName = "my_persistence_unit")
     private EntityManager em;
@@ -28,14 +28,14 @@ public class RentasFacade extends AbstractFacade<Rentas> {
     }
 
     public RentasFacade() {
-        super(Rentas.class);
+        super(Renta.class);
     }
     
-    public List<Rentas> findByLocalizacion(String barrio){
-        TypedQuery<Rentas> query = 
+    public List<Renta> findByLocalizacion(String barrio){
+        TypedQuery<Renta> query = 
                 em.createQuery(
-                        "select r from Rentas r where r.localizacion=:barrio AND NOT r.rentado"
-                        , Rentas.class
+                        "select r from Renta r where r.localizacion=:barrio AND NOT r.rentado"
+                        , Renta.class
                 );
         query.setParameter("barrio", barrio);
         return query.getResultList();

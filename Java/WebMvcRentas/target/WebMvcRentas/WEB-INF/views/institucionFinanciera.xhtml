@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <script>
+            function enviarAgregarPOST(form){
+                form.method='POST';
+                form.action='http://localhost:51346/api/Solicitudes/Nueva';
+                form.submit();
+                return true;
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <f:view>
+
+
+            <h:form>
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="IdUsuario:" for="idUsuario" />
+                    <h:inputText id="idUsuario" value="#{solicitudDataRepositorio.solicitud.idUsuario}" title="IdUsuario" />
+                    <h:outputLabel value="Contrasena:" for="contrasena" />
+                    <h:inputText id="contrasena" value="#{solicitudDataRepositorio.solicitud.contrasena}" title="Contrasena" />
+                    <h:outputLabel value="Tipo:" for="tipo" />
+                    <h:inputText id="tipo" value="#{solicitudDataRepositorio.solicitud.tipo}" title="Tipo" />
+                    <h:outputLabel value="Valor:" for="valor" />
+                    <h:inputText id="valor" value="#{solicitudDataRepositorio.solicitud.valor}" title="Valor" />
+                    <h:outputLabel value="Id:" for="id" />
+                    <h:inputText id="id" value="#{solicitudDataRepositorio.solicitud.id}" title="Id" />
+                </h:panelGrid>
+                <h:commandButton value="Agregar Libro" 
+                                 id="btnAdd" 
+                                onclick="javascript:return enviarAgregarPOST(document.forms[0]);"/>
+                <input type="hidden" name="${mvc.csrf.name}" value="${mvc.csrf.token}"/>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

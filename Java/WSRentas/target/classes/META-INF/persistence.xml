@@ -3,6 +3,6 @@
     <!-- Define Persistence Unit -->
     <persistence-unit name="my_persistence_unit">
         <jta-data-source>jdbc/dsLibreria</jta-data-source>
-        <class>puj.as.sidecar.entities.Rentas</class>
+        <class>puj.as.sidecar.entities.Renta</class>
     </persistence-unit>
 </persistence>

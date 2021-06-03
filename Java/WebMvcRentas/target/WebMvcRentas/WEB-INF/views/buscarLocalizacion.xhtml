@@ -6,7 +6,14 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <a>Hola</a>
+        <form method="get" action='#{request.contextPath}/mvc/app/list'>
+            <select name="localizacion">
+            <option>Colina</option>
+            <option>Santa Isabel</option>
+            <option>Usaquen</option>
+            </select>
+        <input type="submit" value="Enviar" name="Enviar" />
+        </form>
     </h:body>
 </html>
 

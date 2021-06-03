@@ -9,7 +9,7 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import java.util.List;
-import puj.as.sidecar.entities.Rentas;
+import puj.as.sidecar.entities.Renta;
 
 /**
  *
@@ -19,8 +19,8 @@ import puj.as.sidecar.entities.Rentas;
 @SessionScoped
 public class RentasDataRepositorio implements Serializable {
     
-    private Rentas renta;
-    private List<Rentas> rentas;
+    private Renta renta;
+    private List<Renta> rentas;
 
     /**
      * Creates a new instance of RentasDataRepositorio
@@ -28,19 +28,19 @@ public class RentasDataRepositorio implements Serializable {
     public RentasDataRepositorio() {
     }
 
-    public Rentas getRenta() {
+    public Renta getRenta() {
         return renta;
     }
 
-    public void setRenta(Rentas renta) {
+    public void setRenta(Renta renta) {
         this.renta = renta;
     }
 
-    public List<Rentas> getRentas() {
+    public List<Renta> getRentas() {
         return rentas;
     }
 
-    public void setRentas(List<Rentas> rentas) {
+    public void setRentas(List<Renta> rentas) {
         this.rentas = rentas;
     }
     

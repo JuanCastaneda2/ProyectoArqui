@@ -5,10 +5,13 @@
  */
 package puj.as.presentacionweb.webmvcrentas.proxys;
 
+import java.util.List;
 import javax.ws.rs.ClientErrorException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.GenericType;
 import javax.ws.rs.core.Response;
+import puj.as.sidecar.entities.Renta;
 
 /**
  * Jersey REST client generated for REST resource:WSManagerRentas
@@ -27,7 +30,7 @@ public class ProxyWSRentas {
 
     private WebTarget webTarget;
     private Client client;
-    private static final String BASE_URI = "http://localhost:8080/WSRentas/webresources";
+    private static final String BASE_URI = "http://localhost:8080/WSRentas/resources";
 
     public ProxyWSRentas() {
         client = javax.ws.rs.client.ClientBuilder.newClient();
@@ -38,16 +41,17 @@ public class ProxyWSRentas {
         return webTarget.path(java.text.MessageFormat.format("rentar/{0}", new Object[]{placa})).request().put(null, Response.class);
     }
 
-    public <T> T findByLocalizacion(Class<T> responseType, String barrio) throws ClientErrorException {
+    public <T> List<Renta> findByLocalizacion(String barrio) throws ClientErrorException {
         WebTarget resource = webTarget;
         resource = resource.path(java.text.MessageFormat.format("localizacion/{0}", new Object[]{barrio}));
-        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(new GenericType<List<Renta>>() {
+        });
     }
 
-    public <T> T findByPlaca(Class<T> responseType, String placa) throws ClientErrorException {
+    public <T> Renta findByPlaca(String placa) throws ClientErrorException {
         WebTarget resource = webTarget;
         resource = resource.path(java.text.MessageFormat.format("{0}", new Object[]{placa}));
-        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(responseType);
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(Renta.class);
     }
 
     public Response addRenta(Object requestEntity) throws ClientErrorException {

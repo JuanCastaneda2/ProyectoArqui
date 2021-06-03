@@ -19,7 +19,7 @@ import javax.inject.Inject;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import puj.as.sidecar.entities.Rentas;
+import puj.as.sidecar.entities.Renta;
 import puj.as.wsrentas.facades.RentasFacade;
 
 /**
@@ -53,7 +53,7 @@ public class WSManagerRentas {
     @Path("/{placa}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findByPlaca(@PathParam("placa") String placa) {
-        Rentas renta = rentasFacade.find(placa);
+        Renta renta = rentasFacade.find(placa);
         if (renta != null) {
             return Response
                     .ok(renta)
@@ -71,7 +71,7 @@ public class WSManagerRentas {
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    public Response addRenta(Rentas renta) {
+    public Response addRenta(Renta renta) {
         rentasFacade.create(renta);
         URI createdURI = context.getBaseUriBuilder()
                 .path(
@@ -84,7 +84,7 @@ public class WSManagerRentas {
     @Path ("/localizacion/{barrio}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response findByLocalizacion(@PathParam("barrio") String barrio) {
-        final List<Rentas> rentas = rentasFacade.findByLocalizacion(barrio);
+        final List<Renta> rentas = rentasFacade.findByLocalizacion(barrio);
         if (rentas.size() > 0) {
             return Response.ok(rentas).build();
         }
@@ -95,7 +95,7 @@ public class WSManagerRentas {
     @Path ("/rentar/{placa}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response rentar(@PathParam("placa") String placa) {
-        Rentas renta = rentasFacade.find(placa);
+        Renta renta = rentasFacade.find(placa);
         if (renta != null) {
             renta.setRentado(Boolean.TRUE);
             rentasFacade.edit(renta);
