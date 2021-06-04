@@ -12,15 +12,27 @@
     <title>Index</title>
 </head>
 <body>
+    <h2>Buscar carros por localización</h2>
     <div>
-        <form method="get" action='#{request.contextPath}/mvc/app/list'>
-            <select name="localizacion" val>
-                <option>Colina</option>
-                <option>Santa Isabel</option>
-                <option>Usaquen</option>
-            </select>
-            <input type="submit" value="Enviar" name="Enviar" />
-        </form>
+        <!--http://localhost:8080/WSRentas/resources/managerrentas/localizacion/Colina-->
+        <!--http://localhost:60765/WSRentas/resources/managerrentas/localizacion/?localizacion=Colina&Enviar=Enviar-->
+        <!--@Html.DropDownList("locaciones", (List<SelectListItem>)ViewBag.locaciones)
+        <input type="submit" value="Buscar" />-->
+
+        <select id="UrlList" onchange="doNavigate()">
+            <option value="" selected disabled>Seleccione una opción</option>
+            <option value="http://localhost:8080/WSRentas/resources/managerrentas/localizacion/Colina">Colina</option>
+            <option value="@Url.Action("Go", "RentasController")">Colina 2</option>
+            <option value="http://localhost:8080/WSRentas/resources/managerrentas/localizacion/Santa+Isabel">Santa Isabel</option>
+            <option value="http://localhost:8080/WSRentas/resources/managerrentas/localizacion/Usaquen">Usaquen</option>
+        </select>
+
+        <script>
+            function doNavigate() {
+                window.location.href = document.getElementById("UrlList").value;
+            }
+        </script>
+
     </div>
 </body>
 </html>
