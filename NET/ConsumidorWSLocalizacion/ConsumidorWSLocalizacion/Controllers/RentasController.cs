@@ -15,6 +15,7 @@ namespace ConsumidorWSLocalizacion.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+            ViewBag.Locaciones = ObtenerListado();
             return View();
         }
 
@@ -47,6 +48,34 @@ namespace ConsumidorWSLocalizacion.Controllers
             }
             return View(rentas);
 
+        }
+
+        public List<SelectListItem> ObtenerListado()
+        {
+            return new List<SelectListItem>()
+            {
+                new SelectListItem()
+                {
+                    Text = "Seleccione una opción",
+                    Value = "0",
+                    Disabled = true
+                },
+                new SelectListItem()
+                {
+                    Text = "Colina",
+                    Value = "1"
+                },
+                new SelectListItem()
+                {
+                    Text = "Santa Isabel",
+                    Value = "2"
+                },
+                new SelectListItem()
+                {
+                    Text = "Usaquen",
+                    Value = "3"
+                }
+            };
         }
 
     }
