@@ -88,7 +88,7 @@ public class AppController {
     @POST
     @Path ("/pay")
     @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
-    @View("listado.xhtml")
+    @View("rentaFin.xhtml")
     public void pagar(@Valid @BeanParam SolicitudDTO solicitud){
         ProxyWSIF proxyIF = new ProxyWSIF();
         ProxyWSRentas proxy = new ProxyWSRentas();
