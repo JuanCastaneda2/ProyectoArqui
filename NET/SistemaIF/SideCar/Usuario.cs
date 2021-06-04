@@ -30,5 +30,14 @@ namespace SideCar
             }
             return false;
         }
+
+        public bool Validate(String contrasena)
+        {
+            if (this.Contrasena.Equals(contrasena))
+            {
+                return true;
+            }
+            return false;
+        }
     }
 }

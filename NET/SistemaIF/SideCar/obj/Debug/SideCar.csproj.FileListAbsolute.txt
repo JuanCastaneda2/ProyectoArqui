@@ -60,4 +60,3 @@ C:\Users\admin\Documents\ProyectoArqui\NET\SistemaIF\SideCar\obj\Debug\SideCar.c
 C:\Users\admin\Documents\ProyectoArqui\NET\SistemaIF\SideCar\obj\Debug\SideCar.csproj.CopyComplete
 C:\Users\admin\Documents\ProyectoArqui\NET\SistemaIF\SideCar\obj\Debug\SideCar.dll
 C:\Users\admin\Documents\ProyectoArqui\NET\SistemaIF\SideCar\obj\Debug\SideCar.pdb
-C:\Users\admin\Documents\ProyectoArqui\NET\SistemaIF\SideCar\obj\Debug\SideCar.csprojAssemblyReference.cache

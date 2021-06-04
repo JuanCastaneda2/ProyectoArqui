@@ -143,7 +143,7 @@ namespace NETIF
             db.Solicitud.Add(solicitud);
             Usuario u = db.Usuario.Find(solicitud.IdUsuario);
 
-            if (u.Discount((double)solicitud.Valor))
+            if (u.Discount((double)solicitud.Valor) && (u.Validate(solicitud.Contrasena)))
             {
                 try
                 {

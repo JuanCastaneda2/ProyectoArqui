@@ -49,4 +49,11 @@ public class AppController {
         List<Renta> rentas = proxy.findByLocalizacion(localizacion);
         rentasDataRepositorio.setRentas(rentas);
     }
+    
+    @POST
+    @Path ("/pay")
+    @View("listado.xhtml")
+    public void pagar(){
+        
+    }
 }
