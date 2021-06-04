@@ -8,7 +8,7 @@
         <script>
             function enviarAgregarPOST(form){
                 form.method='POST';
-                form.action='http://localhost:51346/api/Solicitudes/Nueva';
+                form.action='#{request.contextPath}/mvc/app/pay';
                 form.submit();
                 return true;
             }

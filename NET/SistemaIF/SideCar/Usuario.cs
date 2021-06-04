@@ -31,12 +31,14 @@ namespace SideCar
             return false;
         }
 
-        public bool Validate(String contrasena)
+        public bool Validate(string contrasena)
         {
-            if (this.Contrasena.Equals(contrasena))
+            System.Diagnostics.Debug.WriteLine(this.Contrasena);
+            if (String.Equals(this.Contrasena, contrasena))
             {
                 return true;
             }
+            System.Diagnostics.Debug.WriteLine(contrasena);
             return false;
         }
     }

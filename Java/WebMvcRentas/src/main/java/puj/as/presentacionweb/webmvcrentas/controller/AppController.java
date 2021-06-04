@@ -6,12 +6,16 @@ import javax.mvc.Controller;
 import javax.mvc.View;
 import javax.validation.Valid;
 import javax.ws.rs.BeanParam;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.QueryParam;
+import javax.ws.rs.core.MediaType;
+import puj.as.presentacionweb.webmvcrentas.dtos.ConfirmacionDTO;
 import puj.as.presentacionweb.webmvcrentas.dtos.SolicitudDTO;
+import puj.as.presentacionweb.webmvcrentas.proxys.ProxyWSIF;
 import puj.as.presentacionweb.webmvcrentas.proxys.ProxyWSRentas;
 import puj.as.presentacionweb.webmvcrentas.repositorios.RentasDataRepositorio;
 import puj.as.presentacionweb.webmvcrentas.repositorios.SolicitudDataRepositorio;
@@ -52,8 +56,11 @@ public class AppController {
     
     @POST
     @Path ("/pay")
+    @Consumes({MediaType.APPLICATION_FORM_URLENCODED})
     @View("listado.xhtml")
-    public void pagar(){
+    public void pagar(@Valid @BeanParam SolicitudDTO solicitud){
+        ProxyWSIF proxy = new ProxyWSIF();
+        ConfirmacionDTO conf = proxy.solicitud(solicitud);
         
     }
 }

@@ -16,6 +16,8 @@ namespace NETIF
     {
         private RentasEntities db = new RentasEntities();
 
+        private readonly Random random = new Random();
+
         // GET: api/Solicitudes
         public IQueryable<Solicitud> GetSolicitud()
         {
@@ -135,6 +137,7 @@ namespace NETIF
         [ResponseType(typeof(Solicitud))]
         public IHttpActionResult Nueva(Solicitud solicitud)
         {
+            System.Diagnostics.Debug.WriteLine(solicitud.Valor);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
@@ -142,9 +145,16 @@ namespace NETIF
 
             db.Solicitud.Add(solicitud);
             Usuario u = db.Usuario.Find(solicitud.IdUsuario);
+            Confirmacion confirmacion = new Confirmacion
+            {
+                aprobacion = -1,
+                fecha = DateTime.Now.ToString()
+            };
 
             if (u.Discount((double)solicitud.Valor) && (u.Validate(solicitud.Contrasena)))
             {
+                confirmacion.aprobacion = random.Next(9999);
+              
                 try
                 {
                     db.SaveChanges();
@@ -161,7 +171,7 @@ namespace NETIF
                     }
                 }
             }
-            return CreatedAtRoute("DefaultApi", new { id = solicitud.Id }, solicitud);
+            return CreatedAtRoute("DefaultApi", new { id = solicitud.Id }, confirmacion);
         }
     }
 }
