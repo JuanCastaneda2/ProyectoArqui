@@ -38,7 +38,9 @@ public class ProxyWSRentas {
     }
 
     public Response rentar(String placa) throws ClientErrorException {
-        return webTarget.path(java.text.MessageFormat.format("rentar/{0}", new Object[]{placa})).request().put(null, Response.class);
+        WebTarget resource = webTarget;
+        resource = resource.path(java.text.MessageFormat.format("rentar/{0}", new Object[]{placa}));
+        return resource.request(javax.ws.rs.core.MediaType.APPLICATION_JSON).get(Response.class);
     }
 
     public <T> List<Renta> findByLocalizacion(String barrio) throws ClientErrorException {

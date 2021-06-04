@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <script>
+            function enviarAgregarPOST(form){
+                form.method='POST';
+                form.action='#{request.contextPath}/mvc/app/if';
+                form.submit();
+                return true;
+            }
+        </script>
+    </h:head>
+    <h:body>
+        <f:view>
+            <h:form prependId="false">
+                <h1><h:outputText value="Create/Edit"/></h1>
+                <h:panelGrid columns="2">
+                    <h:inputHidden id="registroId" value="#{registroDataRepositorio.registro.registroId}" required="true" requiredMessage="The RegistroId field is required."/>
+                    <br></br>
+                    <h:outputLabel value="Nombre:" for="nombre" />
+                    <h:inputText id="nombre" value="#{registroDataRepositorio.registro.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."/>
+                    <h:outputLabel value="Dias a rentar:" for="dias" />
+                    <h:inputText id="dias" value="#{registroDataRepositorio.registro.dias}" title="Dias" />
+                    <h:outputLabel value="Placa:  #{registroDataRepositorio.registro.placa}" for="placa" />
+                    <h:inputHidden id="placa" value="#{registroDataRepositorio.registro.placa}" />
+                    <h:outputLabel value="Valor diario:   #{registroDataRepositorio.registro.monto}" for="monto" />
+                    <h:inputHidden id="monto" value="#{registroDataRepositorio.registro.monto}"/>
+                    <h:commandButton value="Realizar pago" 
+                                 id="btnAdd" 
+                                onclick="javascript:return enviarAgregarPOST(document.forms[0]);"/>
+                <input type="hidden" name="${mvc.csrf.name}" value="${mvc.csrf.token}"/>
+                </h:panelGrid>
+            </h:form>
+        </f:view>
+
+    </h:body>
+</html>
+

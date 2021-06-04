@@ -8,6 +8,7 @@ package puj.as.presentacionweb.webmvcrentas.repositorios;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import puj.as.sidecar.entities.Registro;
 
 /**
  *
@@ -20,7 +21,20 @@ public class RegistroDataRepositorio implements Serializable {
     /**
      * Creates a new instance of RegistroDataRepositorio
      */
+    
+    private Registro registro;
+    
     public RegistroDataRepositorio() {
     }
+
+    public Registro getRegistro() {
+        return registro;
+    }
+
+    public void setRegistro(Registro registro) {
+        this.registro = registro;
+    }
+    
+    
     
 }

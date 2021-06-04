@@ -41,6 +41,7 @@ public class WSManagerRegistros {
 
     @POST
     public Response AgregarRegistroAsinc(Registro newRegistro) {
+        System.out.println("Hola" + newRegistro.getNombre());
         try (Connection connection = jmsFactory.createConnection();
                 Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
                 MessageProducer producer = session.createProducer(jmsQueue)) {

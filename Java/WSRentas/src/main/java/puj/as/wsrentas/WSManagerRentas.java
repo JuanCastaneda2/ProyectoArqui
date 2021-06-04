@@ -91,7 +91,7 @@ public class WSManagerRentas {
         return Response.status(Response.Status.NO_CONTENT).build();
     }
     
-    @PUT
+    @GET
     @Path ("/rentar/{placa}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response rentar(@PathParam("placa") String placa) {

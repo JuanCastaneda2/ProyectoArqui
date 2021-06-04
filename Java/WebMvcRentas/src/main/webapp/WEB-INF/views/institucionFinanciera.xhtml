@@ -25,12 +25,11 @@
                     <h:inputText id="contrasena" value="#{solicitudDataRepositorio.solicitud.contrasena}" title="Contrasena" />
                     <h:outputLabel value="Tipo:" for="tipo" />
                     <h:inputText id="tipo" value="#{solicitudDataRepositorio.solicitud.tipo}" title="Tipo" />
-                    <h:outputLabel value="Valor:" for="valor" />
-                    <h:inputText id="valor" value="#{solicitudDataRepositorio.solicitud.valor}" title="Valor" />
-                    <h:outputLabel value="Id:" for="id" />
-                    <h:inputText id="id" value="#{solicitudDataRepositorio.solicitud.id}" title="Id" />
+                    <h:outputLabel value="Valor:#{solicitudDataRepositorio.solicitud.valor}" for="valor" />
+                    <h:inputHidden id="valor" value="#{solicitudDataRepositorio.solicitud.valor}" />
+                    <h:inputHidden id="id" value="#{solicitudDataRepositorio.solicitud.id}"/>
                 </h:panelGrid>
-                <h:commandButton value="Agregar Libro" 
+                <h:commandButton value="Realizar pago" 
                                  id="btnAdd" 
                                 onclick="javascript:return enviarAgregarPOST(document.forms[0]);"/>
                 <input type="hidden" name="${mvc.csrf.name}" value="${mvc.csrf.token}"/>
